@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Semakan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>Tag</ion-label>
+      <ion-select [(ngModel)]="form.tag" placeholder="Pilih" interface="action-sheet">
+        <ion-select-option value="CukaiTaksiranbyNoAkaun">Cukai Taksiran by No Akaun</ion-select-option>
+        <ion-select-option value="KompaunbyNoKenderaan">Kompaun by No. Kenderaan</ion-select-option>        
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>No</ion-label>
+      <ion-input [(ngModel)]="form.no" type="text" placeholder="Masukkan input"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <ion-button expand="block" (click)="onSemakan()">Semak</ion-button>
+  </div>
+  <ion-card *ngIf="tag=='CukaiTaksiranbyNoAkaun'">
+    <ion-card-content>
+      <p>{{taksiran.AlamatHarta}}</p>
+      <p>{{taksiran.BilSemasa}}</p>
+      <p>{{taksiran.BilSetahun}}</p>
+      <p>{{taksiran.Nama}}</p>
+      <p>{{taksiran.NoAkaun}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
